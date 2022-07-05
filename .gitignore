@@ -1,0 +1,12 @@
+node_modules
+notused
+.vscode
+package-lock.json
+config.js
+.env
+yarn.lock
+.config.yml
+.dockerignore
+.replit
+pnpm-lock.yaml
+dockerfile
