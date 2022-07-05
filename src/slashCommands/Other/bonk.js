@@ -20,7 +20,8 @@ module.exports = {
      */
     run: async(client, interaction, args) => {
         await interaction.deferReply();
-        const member = interaction.guild.members.cache.get(args[0]) 
+        let options = interaction.options;
+        const member = options.getMember('user');
         if (member.id == interaction.member.id) return interaction.followUp('You cannot bonk yourself')
           const { body } = await superagent
             .get("https://api.waifu.pics/sfw/bonk");
