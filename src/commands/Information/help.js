@@ -1,7 +1,7 @@
 const { MessageEmbed, MessageActionRow, MessageButton, MessageSelectMenu } = require("discord.js");
 const { readdirSync } = require("fs");
 const client = require('../../structures/Client');
-let color = "#36393f";
+let color = "#ffae29";
 
 // Prefix
 const db = require('../../schema/prefix');
@@ -100,7 +100,7 @@ module.exports = {
       let embed = new MessageEmbed()
           .setTitle("Help Menu!")
           .setDescription(`**Pilih menu di bawah sesuai dengan kategorinya!**\n> Untuk melihat kategori, pakai command \`\`${p}help [category]\`\` atau \`\`/help\`\` untuk melihat slash command!`)
-          .setColor("GREEN")
+          .setColor(color)
           .setThumbnail('https://cdn.discordapp.com/attachments/938406741526323210/992382386476163102/anime-girl-laying-with-cat-4k-wallpaper-uhdpaper.com-2880g.jpg')
           .addFields(
               {name: "Prefixes!",value: `\`\`Prefix = [${p}]\`\`` , inline: true,},
@@ -125,7 +125,7 @@ module.exports = {
       let embed1 = new MessageEmbed()
           .setTitle("/ Slash Commands!")
           .setDescription("Use the slash commands")
-          .setColor("GREEN")
+          .setColor(color)
           .addFields(
               {name: "Discord Activity",value: "`/activities` = Lakukan berbagai aktivitas bersama di Discord!"},
               {name: "Utilities",value: "`/ping` = Returns websocket ping\n`/clean (Not Available)` = Remove the amount of message you want to delete\n`/bonk` = No horni\n`/triggered` = Pake ini kalo ke-triggered."},
@@ -137,7 +137,7 @@ module.exports = {
       let embed2 = new MessageEmbed()
           .setTitle("Commands!")
           .setDescription("This commands need Prefix!")
-          .setColor("GREEN")
+          .setColor(color)
           .addFields(
               {name: "Future Moderation", value: `\`-prefix\` = Check the server prefix\n\`-setprefix\` = Set your custom prefix\n\`-prefix-reset\` = Reset the prefix to default`},
               {name: "General", value: `\`-help\` = For Help!\n\`-ping\` = Returns websocket ping\n\`-invite\` = Get the bot invitation\n\`-hen\` = Unlock a secret channel (sst don't tell anyone about this command). *this command only works in [this server](https://discord.gg/v5fjSdKwr2)`},
@@ -151,7 +151,7 @@ module.exports = {
       let embed3 = new MessageEmbed()
           .setTitle("Without Prefix Commands")
           .setDescription("No need prefix to use this commands")
-          .setColor("GREEN")
+          .setColor(color)
           .addFields(
               {name: 'Commands', value: '`speed` = Hamster be like: "wooosh"\n`troleo divino` = ima put ma balls in yo jaw\n`troleo` = half of me be like\n`divino` = and yes another half of me be like\n`amogus` = S U S\n`dog` = yoo ma dog whatcha doin over there?\n`cat` = smiling cat ( yes thats it ).'}
           )

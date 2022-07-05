@@ -37,7 +37,8 @@ module.exports = {
     if (!content) {
       let categories = [];
 
-      const data = await prefixSchema.findOne({ Guild : message.guild.id })
+      const data = await db.findOne({ Guild : interaction.guild.id })
+
       .catch(err => console.log(err))
   
       if(data) {
@@ -58,8 +59,9 @@ module.exports = {
           if (!file.name) return "No command name.";
 
           let name = file.name.replace(".js", "");
+          let description = file.description;
 
-          return `\`${name}\``;
+          return `\`/${name}\` : ${description} \n`;
         });
 
         let data = new Object();
@@ -82,7 +84,7 @@ module.exports = {
           `Requested by ${interaction.user.tag}`,
         })
         .setTimestamp()
-        .setColor(roleColor);
+        .setColor('#ffae29');
       return interaction.followUp({ embeds: [embed] });
     } else {
       const p = await client.prefix(interaction)

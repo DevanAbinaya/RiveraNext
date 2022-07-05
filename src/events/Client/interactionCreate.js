@@ -104,5 +104,24 @@ module.exports = {
             let data = await db3.findOne({ Guild: interaction.guildId });
             if (data && interaction.channelId === data.Channel && interaction.message.id === data.Message) return client.emit("playerButtons", interaction, data);
         };
+
+        // Reaction Roles Handling
+    if(interaction.isSelectMenu()) {
+        if(interaction.customId !== 'reaction-roles') return;
+        await interaction.deferReply({ ephemeral: true })
+        const roleId = interaction.values[0];
+        const role = interaction.guild.roles.cache.get(roleId)
+        const memberRoles = interaction.member.roles;
+        
+        const hasRole = memberRoles.cache.has(roleId);
+
+        if(hasRole) {
+            memberRoles.remove(roleId);
+            interaction.followUp(`${role.name} has been removed from you`)
+        } else {
+            memberRoles.add(roleId)
+            interaction.followUp(`${role.name} has been added to you`)
+        }
+    }
     }
 };

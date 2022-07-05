@@ -10,3 +10,4 @@ yarn.lock
 .replit
 pnpm-lock.yaml
 dockerfile
+README.md
