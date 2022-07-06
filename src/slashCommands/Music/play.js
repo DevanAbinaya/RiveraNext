@@ -72,7 +72,7 @@ module.exports = {
         const playlistloadds = new MessageEmbed()
           .setColor(client.embedColor)
           .setTimestamp()
-          .setDescription(`🔹 |  **[${res.playlist.name}](${query})** [${member}]has been added to the queue.`)
+          .setDescription(`🔹 |  **[${res.playlist.name}](${search})** [${member}] has been added to the queue.`)
           .addField("Enqueued", `\`${res.tracks.length}\` tracks`)
 
 if (!player.playing && !player.paused && player.queue.totalSize === res.tracks.length)await player.play();

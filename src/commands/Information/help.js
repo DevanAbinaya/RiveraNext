@@ -34,7 +34,7 @@ module.exports = {
          custom = "-"
       }
 
-      const p = data.Prefix || "-"
+      const p = custom;
 
       const row = new MessageActionRow()
           .addComponents(
@@ -246,7 +246,7 @@ module.exports = {
       }
 
       // console.log(cots);
-      const p = data.Prefix || "-"
+      const p = custom;
 
       const command =
         client.commands.get(args[0].toLowerCase()) ||

@@ -46,7 +46,7 @@ module.exports = {
       } else {
           custom = prefix;
       }
-        const p = data.Prefix || "-"
+        const p = custom;
 
       readdirSync("./src/slashCommands").forEach((dir) => {
         const commands = readdirSync(`./src/slashCommands/${dir}/`).filter((file) =>

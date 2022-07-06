@@ -22,6 +22,12 @@ module.exports = {
 
     run: async (client, interaction) => {
         await interaction.deferReply().catch(() => {});
+
+        const {
+            options,
+            member,
+            guild
+        } = interaction;
       
         const player = interaction.client.manager.get(interaction.guildId);
          if (!player.queue.current)
@@ -39,7 +45,7 @@ module.exports = {
         
         if(!player.queue.size || player.queue.size === 0) {
 
-            const embed = new MessageEmbed().setColor(client.embedColor).setDescription(`Now playing [${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${convertTime(player.position)} / ${convertTime(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]`);
+            const embed = new MessageEmbed().setColor('BLURPLE').setDescription(`Now playing [${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${convertTime(player.position)} / ${convertTime(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]`);
 
             await interaction.editReply({
                 embeds: [embed]
@@ -57,13 +63,25 @@ module.exports = {
 
             if(player.queue.size < 10 || player.queue.totalSize < 10) {
 
-                const embed2 = new MessageEmbed().setTitle(`${interaction.guild.name} Server Queue`).setColor(client.embedColor).setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${convertTime(player.position)} / ${convertTime(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`).setFooter({text: `Page ${page + 1}/${pages.length}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }),}).setThumbnail(player.queue.current.thumbnail).setTimestamp()
+                const embed2 = new MessageEmbed()
+                .setColor("BLURPLE")
+                .setTitle(`Current queue for ${guild.name}`)
+                .setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${convertTime(player.position)} / ${convertTime(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`)
+                .setFooter({text: `Page ${page + 1}/${pages.length}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }),})
+                .setThumbnail(player.queue.current.thumbnail)
+                .setTimestamp()
 
                 await interaction.editReply({
                     embeds: [embed2]
                 }).catch(() => {});
             } else {
-                const embed3 = new MessageEmbed().setTitle(`${interaction.guild.name} Server Queue`).setColor(client.embedColor).setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${convertTime(player.position)} / ${convertTime(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`).setFooter({text: `Page ${page + 1}/${pages.length}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }),}).setThumbnail(player.queue.current.thumbnail).setTimestamp()
+                const embed3 = new MessageEmbed()
+                .setColor("BLURPLE")
+                .setTitle(`Current queue for ${guild.name}`)
+                .setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${convertTime(player.position)} / ${convertTime(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`)
+                .setFooter({text: `Page ${page + 1}/${pages.length}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }),})
+                .setThumbnail(player.queue.current.thumbnail)
+                .setTimestamp()
 
                 const but1 = new MessageButton().setCustomId("queue_cmd_but_1_app").setEmoji("<:m_next:994130188789104670>").setStyle("PRIMARY")
 
@@ -101,7 +119,7 @@ module.exports = {
                         await button.deferUpdate().catch(() => {});
                         page = page + 1 < pages.length ? ++page : 0;
 
-                        const embed4 = new MessageEmbed().setColor(client.embedColor).setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${convertTime(player.position)} / ${convertTime(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`).setFooter({text: `Page ${page + 1}/${pages.length}`, iconURL: button.user.displayAvatarURL({ dynamic: true })}).setThumbnail(player.queue.current.thumbnail).setTimestamp()
+                        const embed4 = new MessageEmbed().setColor('BLURPLE').setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${convertTime(player.position)} / ${convertTime(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`).setFooter({text: `Page ${page + 1}/${pages.length}`, iconURL: button.user.displayAvatarURL({ dynamic: true })}).setThumbnail(player.queue.current.thumbnail).setTimestamp()
 
                         await interaction.editReply({
                             embeds: [embed4],
@@ -115,7 +133,7 @@ module.exports = {
                         await button.deferUpdate().catch(() => {});
                         page = page > 0 ? --page : pages.length - 1;
 
-                        const embed5 = new MessageEmbed().setColor(client.embedColor).setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${convertTime(player.position)} / ${convertTime(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`).setFooter({text: `Page ${page + 1}/${pages.length}`, iconURL: button.user.displayAvatarURL({ dynamic: true })}).setThumbnail(player.queue.current.thumbnail).setTimestamp()
+                        const embed5 = new MessageEmbed().setColor('BLURPLE').setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${convertTime(player.position)} / ${convertTime(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`).setFooter({text: `Page ${page + 1}/${pages.length}`, iconURL: button.user.displayAvatarURL({ dynamic: true })}).setThumbnail(player.queue.current.thumbnail).setTimestamp()
 
                         await interaction.editReply({
                             embeds: [embed5],
