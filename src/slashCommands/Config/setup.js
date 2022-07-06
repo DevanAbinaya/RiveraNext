@@ -130,15 +130,15 @@ module.exports = {
 
             if (player && player.queue && player.queue.current) embed1.setDescription(desc);
 
-            let pausebut = new MessageButton().setCustomId(`pause_but_${interaction.guildId}`).setEmoji("⏯️").setStyle("SECONDARY").setDisabled(disabled);
+            let pausebut = new MessageButton().setCustomId(`pause_but_${interaction.guildId}`).setEmoji("<:m_play:994130210188439573>").setStyle("SECONDARY").setDisabled(disabled);
 
-            let lowvolumebut = new MessageButton().setCustomId(`lowvolume_but_${interaction.guildId}`).setEmoji("🔉").setStyle("SECONDARY").setDisabled(disabled);
+            let lowvolumebut = new MessageButton().setCustomId(`lowvolume_but_${interaction.guildId}`).setEmoji("<:voldown:994130330246201374>").setStyle("SECONDARY").setDisabled(disabled);
 
-            let highvolumebut = new MessageButton().setCustomId(`highvolume_but_${interaction.guildId}`).setEmoji("🔊").setStyle("SECONDARY").setDisabled(disabled);
+            let highvolumebut = new MessageButton().setCustomId(`highvolume_but_${interaction.guildId}`).setEmoji("<:volup:994130357173624923>").setStyle("SECONDARY").setDisabled(disabled);
 
-            let previousbut = new MessageButton().setCustomId(`previous_but_${interaction.guildId}`).setEmoji("⏮️").setStyle("SECONDARY").setDisabled(disabled);
+            let previousbut = new MessageButton().setCustomId(`previous_but_${interaction.guildId}`).setEmoji("<:m_previous:994130242757210172>").setStyle("SECONDARY").setDisabled(disabled);
 
-            let skipbut = new MessageButton().setCustomId(`skipbut_but_${interaction.guildId}`).setEmoji("⏭️").setStyle("SECONDARY").setDisabled(disabled);
+            let skipbut = new MessageButton().setCustomId(`skipbut_but_${interaction.guildId}`).setEmoji("<:m_next:994130188789104670>").setStyle("SECONDARY").setDisabled(disabled);
 
             const row1 = new MessageActionRow().addComponents(lowvolumebut, previousbut, pausebut, skipbut, highvolumebut);
 

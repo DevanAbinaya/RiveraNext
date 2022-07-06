@@ -122,10 +122,10 @@ module.exports = {
                 break;
             case 'speed':
                 player.setSpeed(2);
-                thing.setDescription(`${emojiequalizer} Speed mode is OFF`);
+                thing.setDescription(`${emojiequalizer} Speed mode is ON`);
             case '8d':
                 player.set8D(true);
-                thing.setDescription(`${emojiequalizer} 8D mode is OFF`);
+                thing.setDescription(`${emojiequalizer} 8D mode is ON`);
         }
         return interaction.editReply({ embeds: [thing] });
     }

@@ -27,15 +27,15 @@ module.exports = async (client, player) => {
 		
 	let embed1 = new MessageEmbed().setColor(client.embedColor).setTitle(`Nothing playing right now in this server!`).setDescription(`[Invite](${client.config.links.invite}) - [Support Server](${client.config.links.support})`).setImage(client.config.links.img);
 
-	let pausebut = new MessageButton().setCustomId(`pause_but_${guild.id}`).setEmoji("⏯️").setStyle("SECONDARY").setDisabled(false);
+	let pausebut = new MessageButton().setCustomId(`pause_but_${guild.id}`).setEmoji("<:m_play:994130210188439573>").setStyle("SECONDARY").setDisabled(false);
 
-	let lowvolumebut = new MessageButton().setCustomId(`lowvolume_but_${guild.id}`).setEmoji("🔉").setStyle("SECONDARY").setDisabled(false);
+	let lowvolumebut = new MessageButton().setCustomId(`lowvolume_but_${guild.id}`).setEmoji("<:voldown:994130330246201374>").setStyle("SECONDARY").setDisabled(false);
 
-	let highvolumebut = new MessageButton().setCustomId(`highvolume_but_${guild.id}`).setEmoji("🔊").setStyle("SECONDARY").setDisabled(false);
+	let highvolumebut = new MessageButton().setCustomId(`highvolume_but_${guild.id}`).setEmoji("<:volup:994130357173624923>").setStyle("SECONDARY").setDisabled(false);
 
-	let previousbut = new MessageButton().setCustomId(`previous_but_${guild.id}`).setEmoji("⏮️").setStyle("SECONDARY").setDisabled(false);
+	let previousbut = new MessageButton().setCustomId(`previous_but_${guild.id}`).setEmoji("<:m_previous:994130242757210172>").setStyle("SECONDARY").setDisabled(false);
 
-	let skipbut = new MessageButton().setCustomId(`skipbut_but_${guild.id}`).setEmoji("⏭️").setStyle("SECONDARY").setDisabled(false);
+	let skipbut = new MessageButton().setCustomId(`skipbut_but_${guild.id}`).setEmoji("<:m_next:994130188789104670>").setStyle("SECONDARY").setDisabled(false);
 
 	const row1 = new MessageActionRow().addComponents([lowvolumebut, previousbut, pausebut, skipbut, highvolumebut]);
 	await message.edit({

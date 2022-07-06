@@ -95,7 +95,7 @@ if (!player.playing && !player.paused && player.queue.totalSize === res.tracks.l
           const thing = new MessageEmbed()
             .setColor(client.embedColor)
             .setTimestamp()
-            .setDescription(`🔹 |  Enqueued **[${res.tracks[0].title}](${res.tracks[0].uri})** \`[${convertTime(track.duration)}] || "Undetermined"} - ${member}]\``);
+            .setDescription(`🔹 |  Enqueued **[${res.tracks[0].title}](${res.tracks[0].uri})** [${convertTime(track.duration) || "Undetermined"} - ${member}]`);
 
           return await interaction.editReply({ embeds: [thing] });
         }

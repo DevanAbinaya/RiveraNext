@@ -30,15 +30,15 @@ module.exports = async (client, player, track, payload) => {
     .setDescription(`🔹 |  Now Playing **[${track.title}](${track.uri})** [${convertTime(track.duration) || "Undetermined"} - <@${track.requester.id}>]`)
     .setThumbnail(track.displayThumbnail("maxresdefault"))
     .setTimestamp()
-  const But1 = new MessageButton().setCustomId("vdown").setEmoji("🔉").setStyle("SECONDARY");
+  const But1 = new MessageButton().setCustomId("vdown").setEmoji("<:voldown:994130330246201374>").setStyle("SECONDARY");
 
-  const But2 = new MessageButton().setCustomId("stop").setEmoji("⏹️").setStyle("SECONDARY");
+  const But2 = new MessageButton().setCustomId("previous").setEmoji("<:m_previous:994130242757210172>").setStyle("SECONDARY");
 
-  const But3 = new MessageButton().setCustomId("pause").setEmoji("⏸️").setStyle("SECONDARY");
+  const But3 = new MessageButton().setCustomId("pause").setEmoji("<:m_play:994130210188439573>").setStyle("SECONDARY");
 
-  const But4 = new MessageButton().setCustomId("skip").setEmoji("⏭️").setStyle("SECONDARY");
+  const But4 = new MessageButton().setCustomId("skip").setEmoji("<:m_next:994130188789104670>").setStyle("SECONDARY");
 
-  const But5 = new MessageButton().setCustomId("vup").setEmoji("🔊").setStyle("SECONDARY");
+  const But5 = new MessageButton().setCustomId("vup").setEmoji("<:volup:994130357173624923>").setStyle("SECONDARY");
 
   const row = new MessageActionRow().addComponents(But1, But2, But3, But4, But5);
 
@@ -68,14 +68,24 @@ module.exports = async (client, player, track, payload) => {
       let amount = Number(player.volume) - 10;
       await player.setVolume(amount);
       i.editReply({ embeds: [embed.setAuthor({ name: i.member.user.tag, iconURL: i.member.user.displayAvatarURL({ dynamic: true }) }).setDescription(`${volumeEmoji} The current volume is: **${amount}**`)] });
-    } else if (i.customId === "stop") {
+    } else if (i.customId === "previous") {
       if (!player) {
         return collector.stop();
       }
-      await player.stop();
-      await player.queue.clear();
-      i.editReply({ embeds: [embed.setAuthor({ name: i.member.user.tag, iconURL: i.member.user.displayAvatarURL({ dynamic: true }) }).setDescription(`${emojistop} Stopped the music`)] });
-      return collector.stop();
+      if (!player.queue.previous) {
+        return i.editReply({ content: `No previously played song found!`});
+      }
+      player.queue.add(player.queue.previous);
+            if (player && player.state === "CONNECTED" && !player.playing && !player.paused && !player.queue.size) await player.play();
+
+            if (player.queue.size === 1) {
+                player.stop();
+            } else {
+                player.queue.add(player.queue.previous, 0);
+
+                if (player.queue.current.title !== player.queue.previous.title || player.queue.current.uri !== player.queue.previous.uri) player.stop();
+            };
+      i.editReply({ embeds: [embed.setAuthor({ name: i.member.user.tag, iconURL: i.member.user.displayAvatarURL({ dynamic: true }) }).setDescription(`🔹 | Now playing [${player.queue.previous.title}](${player.queue.previous.uri})`)] });
     } else if (i.customId === "pause") {
       if (!player) {
         return collector.stop();

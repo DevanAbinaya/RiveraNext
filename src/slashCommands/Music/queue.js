@@ -65,17 +65,17 @@ module.exports = {
             } else {
                 const embed3 = new MessageEmbed().setTitle(`${interaction.guild.name} Server Queue`).setColor(client.embedColor).setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${convertTime(player.position)} / ${convertTime(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`).setFooter({text: `Page ${page + 1}/${pages.length}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }),}).setThumbnail(player.queue.current.thumbnail).setTimestamp()
 
-                const but1 = new MessageButton().setCustomId("queue_cmd_but_1_app").setEmoji("⏭️").setStyle("PRIMARY")
+                const but1 = new MessageButton().setCustomId("queue_cmd_but_1_app").setEmoji("<:m_next:994130188789104670>").setStyle("PRIMARY")
 
-                const dedbut1 = new MessageButton().setDisabled(true).setCustomId("queue_cmd_ded_but_1_app").setEmoji("⏭️").setStyle("SECONDARY")
+                const dedbut1 = new MessageButton().setDisabled(true).setCustomId("queue_cmd_ded_but_1_app").setEmoji("<:m_next:994130188789104670>").setStyle("SECONDARY")
 
-                const but2 = new MessageButton().setCustomId("queue_cmd_but_2_app").setEmoji("⏮️").setStyle("PRIMARY")
+                const but2 = new MessageButton().setCustomId("queue_cmd_but_2_app").setEmoji("<:m_previous:994130242757210172>").setStyle("PRIMARY")
 
-                const dedbut2 = new MessageButton().setDisabled(true).setCustomId("queue_cmd_ded_but_2_app").setEmoji("⏮️").setStyle("SECONDARY")
+                const dedbut2 = new MessageButton().setDisabled(true).setCustomId("queue_cmd_ded_but_2_app").setEmoji("<:m_previous:994130242757210172>").setStyle("SECONDARY")
 
-                const but3 = new MessageButton().setCustomId("queue_cmd_but_3_app").setEmoji("⏹️").setStyle("DANGER")
+                const but3 = new MessageButton().setCustomId("queue_cmd_but_3_app").setEmoji("<:m_stop:994130293168554034>").setStyle("DANGER")
 
-                const dedbut3 = new MessageButton().setDisabled(true).setCustomId("queue_cmd_ded_but_3_app").setEmoji("⏹️").setStyle("SECONDARY")
+                const dedbut3 = new MessageButton().setDisabled(true).setCustomId("queue_cmd_ded_but_3_app").setEmoji("<:m_stop:994130293168554034>").setStyle("SECONDARY")
 
                 await interaction.editReply({
                     embeds: [embed3],

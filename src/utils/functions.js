@@ -129,15 +129,15 @@ async function trackStartEventHandler(msgId, channel, player, track, client) {
 
             let embed1 = new MessageEmbed().setColor(client.embedColor).setDescription(`[${track.title}](${track.uri}) - \`[${convertTime(track.duration)}]\``).setImage(icon).setFooter({ text: `Requested by ${player.queue.current.requester.username}`, iconURL: player.queue.current.requester.displayAvatarURL({ dynamic: true }) });
 
-            let pausebut = new MessageButton().setCustomId(`pause_but_${player.guild}`).setEmoji("⏸️").setStyle("SECONDARY").setDisabled(false);
+            let pausebut = new MessageButton().setCustomId(`pause_but_${player.guild}`).setEmoji("<:m_play:994130210188439573>").setStyle("SECONDARY").setDisabled(false);
 
-            let lowvolumebut = new MessageButton().setCustomId(`lowvolume_but_${player.guild}`).setEmoji("🔉").setStyle("SECONDARY").setDisabled(false);
+            let lowvolumebut = new MessageButton().setCustomId(`lowvolume_but_${player.guild}`).setEmoji("<:voldown:994130330246201374>").setStyle("SECONDARY").setDisabled(false);
 
-            let highvolumebut = new MessageButton().setCustomId(`highvolume_but_${player.guild}`).setEmoji("🔊").setStyle("SECONDARY").setDisabled(false);
+            let highvolumebut = new MessageButton().setCustomId(`highvolume_but_${player.guild}`).setEmoji("<:volup:994130357173624923>").setStyle("SECONDARY").setDisabled(false);
 
-            let previousbut = new MessageButton().setCustomId(`previous_but_${player.guild}`).setEmoji("⏮️").setStyle("SECONDARY").setDisabled(false);
+            let previousbut = new MessageButton().setCustomId(`previous_but_${player.guild}`).setEmoji("<:m_previous:994130242757210172>").setStyle("SECONDARY").setDisabled(false);
 
-            let skipbut = new MessageButton().setCustomId(`skipbut_but_${player.guild}`).setEmoji("⏭️").setStyle("SECONDARY").setDisabled(false);
+            let skipbut = new MessageButton().setCustomId(`skipbut_but_${player.guild}`).setEmoji("<:m_next:994130188789104670>").setStyle("SECONDARY").setDisabled(false);
 
             const row1 = new MessageActionRow().addComponents(lowvolumebut, previousbut, pausebut, skipbut, highvolumebut);
             const m = await channel.send({

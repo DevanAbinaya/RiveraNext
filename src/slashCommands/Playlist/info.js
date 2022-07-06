@@ -49,11 +49,11 @@ module.exports = {
         }
         else {
 
-            let previousbut = new MessageButton().setCustomId("Previous").setEmoji("⏪").setStyle("SECONDARY");
+            let previousbut = new MessageButton().setCustomId("Previous").setEmoji("<:m_rewind:994130273207844984>").setStyle("SECONDARY");
 
-            let nextbut = new MessageButton().setCustomId("Next").setEmoji("⏩").setStyle("SECONDARY");
+            let nextbut = new MessageButton().setCustomId("Next").setEmoji("<:m_forward:994130091086979112>").setStyle("SECONDARY");
 
-            let stopbut = new MessageButton().setCustomId("Stop").setEmoji("⏹️").setStyle("SECONDARY");
+            let stopbut = new MessageButton().setCustomId("Stop").setEmoji("<:m_stop:994130293168554034>").setStyle("SECONDARY");
 
             const row = new MessageActionRow().addComponents(previousbut, stopbut, nextbut);
 

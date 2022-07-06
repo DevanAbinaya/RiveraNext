@@ -37,11 +37,11 @@ module.exports = {
             return await message.reply({ embeds: [embed] })
         } else {
 
-            let previousbut = new MessageButton().setCustomId("Previous").setEmoji("⏪").setStyle("SECONDARY");
+            let previousbut = new MessageButton().setCustomId("Previous").setEmoji("<:m_previous:994130242757210172>").setStyle("SECONDARY");
 
-            let nextbut = new MessageButton().setCustomId("Next").setEmoji("⏩").setStyle("SECONDARY");
+            let nextbut = new MessageButton().setCustomId("Next").setEmoji("<:m_next:994130188789104670>").setStyle("SECONDARY");
 
-            let stopbut = new MessageButton().setCustomId("Stop").setEmoji("⏹️").setStyle("SECONDARY");
+            let stopbut = new MessageButton().setCustomId("Stop").setEmoji("<:m_stop:994130293168554034>").setStyle("SECONDARY");
 
             const row = new MessageActionRow().addComponents(previousbut, stopbut, nextbut);
 
