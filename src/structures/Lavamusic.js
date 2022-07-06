@@ -1,6 +1,6 @@
 const { Message, Client } = require("discord.js");
 const { Structure, Manager } = require("erela.js");
-const { nodes, SpotifyID, SpotifySecret } = require("../config");
+const { nodes, SpotifyID, SpotifySecret } = require('../config.js');
 const deezer = require("erela.js-deezer");
 const Spotify = require("erela.js-spotify");
 const apple = require("erela.js-apple");

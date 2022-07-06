@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const MusicBot = require("./structures/Client");
+const MusicBot = require("./structures/Client.js");
 const client = new MusicBot();
 const ms = require('ms');
 

@@ -2,7 +2,7 @@ const { Client, Intents, Collection, MessageEmbed, MessageButton, MessageSelectM
 const { Manager } = require("erela.js");
 const { readdirSync } = require("fs");
 const mongoose = require('mongoose');
-const Lavamusic = require('./Lavamusic');
+const Lavamusic = require('./Lavamusic.js');
 
 class MusicBot extends Client {
   constructor() {

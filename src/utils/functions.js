@@ -33,7 +33,7 @@ async function oops(channel, args) {
  */
 
 function neb(embed, player, client) {
-    const config = require("../config")
+    const config = require('../config.js')
     let icon = player.queue.current.identifier ? `https://img.youtube.com/vi/${player.queue.current.identifier}/mqdefault.jpg` : config.links.img;
 
     return embed.setDescription(`[${player.queue.current.title}](${player.queue.current.uri}) • \`[${convertTime(player.queue.current.duration)}]\``).setImage(icon).setFooter({ text: `Requested by ${player.queue.current.requester.username}`, iconURL: player.queue.current.requester.displayAvatarURL({ dynamic: true }) });
