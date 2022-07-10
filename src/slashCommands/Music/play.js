@@ -31,7 +31,7 @@ module.exports = {
 
     const emojiaddsong = client.emoji.addsong;
     const emojiplaylist = client.emoji.playlist;
-    let search = interaction.options.getString("input");
+    let search = interaction.options.getString('input');
     let res;
 
     let player = client.manager.create({
@@ -45,7 +45,7 @@ module.exports = {
     if (player.state != "CONNECTED") await player.connect();
 
     try {
-      res = await player.search(search, interaction.member.user);
+      res = await player.search(search + "audio", interaction.member.user);
       if (res.loadType === "LOAD_FAILED") {
         if (!player.queue.current) player.destroy();
         return await interaction.editReply({ embeds: [new MessageEmbed().setColor(client.embedColor).setTimestamp().setDescription(`:x: | **There was an error while searching**`)] });

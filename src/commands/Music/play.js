@@ -37,7 +37,7 @@ module.exports = {
     let res;
 
     try {
-      res = await player.search(search, message.author);
+      res = await player.search(search + "audio", message.author);
       if (!player)
         return message.channel.send({ embeds: [new MessageEmbed().setColor(client.embedColor).setTimestamp().setDescription("Nothing is playing right now...")] });
       if (res.loadType === 'LOAD_FAILED') {
