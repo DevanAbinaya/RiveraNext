@@ -1,4 +1,4 @@
-const { CommandInteraction, Client, Permissions } = require("discord.js")
+const { CommandInteraction, Client, Permissions, MessageEmbed } = require("discord.js")
 const db = require("../../schema/prefix.js");
 const db2 = require("../../schema/dj");
 const db3 = require("../../schema/setup");
