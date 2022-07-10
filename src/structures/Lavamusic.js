@@ -3,7 +3,7 @@ const { Structure, Manager } = require("erela.js");
 const { nodes, SpotifyID, SpotifySecret } = require('../config.js');
 const deezer = require("erela.js-deezer");
 const Spotify = require("erela.js-spotify");
-const apple = require("erela.js-apple");
+const AppleMusic = require("better-erela.js-apple");
 const facebook = require("erela.js-facebook");
 const { readdirSync } = require("fs");
 
@@ -236,7 +236,7 @@ class Lavamusic extends Manager {
           clientID: SpotifyID,
           clientSecret: SpotifySecret
         }),
-        new apple(),
+        new AppleMusic(),
         new facebook(),
       ],
       autoPlay: true,
