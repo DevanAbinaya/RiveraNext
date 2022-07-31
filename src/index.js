@@ -62,6 +62,7 @@ client.on("messageCreate", async (message) => {
 client.manager
   .on("queueEnd", async (player, track) => {
 
+        const exclude = client.channels.cache.get("")
         const playerChannel = client.channels.cache.get(player.textChannel)
         if (!playerChannel.permissionsFor(playerChannel.guild.me).has(["SEND_MESSAGES", "EMBED_LINKS", "ATTACH_FILES",])) return;
 
@@ -70,7 +71,12 @@ client.manager
         .setDescription(`🔹 |  Queue Ended - [Thanks for using Rivera Music!]`)
         .setTimestamp()
 
-        await playerChannel.send({ embeds: [leaveEmbed] }).then(msg => { setTimeout(() => { msg.delete() }, 5000) });
+        if (exclude) {
+          return
+        } else {
+          await playerChannel.send({ embeds: [leaveEmbed] }) //.then(msg => { setTimeout(() => { msg.delete() }, 5000) });
+        }
+        
   })
 
 module.exports = client; 
