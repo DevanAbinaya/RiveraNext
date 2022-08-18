@@ -21,6 +21,32 @@ process.on("multipleResolves", (type, promise, reason) => {
     if (reason.toLocaleString() === "Error: Cannot perform IP discovery - socket closed") return;
 });
 
+// Secret-ch Event
+
+client.on("messageCreate", async(message) => {
+  if(message.content.toLowerCase() == "-hen") {
+    message.delete(1000);
+      message.member.roles.add('900662797698990080');
+        
+        const henEmbed = new MessageEmbed()
+          .setAuthor({name: 'AftervareBOT'})
+          .setDescription(`Good job you unlocked the <#934847781724635196> ( ͡° ͜ʖ ͡°)`)
+          .setColor('NOT_QUITE_BLACK')
+          .setFooter({text: "*This message will disappeared after 50 seconds"})
+
+        message.channel.send({ embeds: [henEmbed] }).then((msg) => {
+          setTimeout(() => msg.delete(), ms('50 seconds'))
+      })
+        sleep(3600000).then(() => { message.member.roles.remove('900662797698990080');
+        message.author.send(`<@${message.author.id}> Udah sejam nih, segitu dulu aja ya scientific researchnya :v`).then((msg) => {
+          setTimeout(() => msg.delete(), ms('50 seconds'))
+      });
+     });
+  }
+});
+
+// Chat Event...
+
 client.on("messageCreate", async (message) => {
     if(message.content.toLowerCase() == "speed") {
         message.channel.send('https://imgur.com/2DbH3W6').then((msg) => {
