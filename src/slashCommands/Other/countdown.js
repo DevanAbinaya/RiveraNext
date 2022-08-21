@@ -35,12 +35,6 @@ module.exports = {
           required: true,
         },
         {
-          name: "seconds",
-          description: "pick a number from 1-60",
-          type: "NUMBER",
-          required: true,
-        },
-        {
           name: "text",
           description: "need a text?",
           type: "STRING",
@@ -63,9 +57,8 @@ module.exports = {
         const date = options.getNumber('date')
         const hour = options.getNumber('hour')
         const minute = options.getNumber('minute')
-        const seconds = options.getNumber('seconds')
         
-        var myDate = new Date(`${month} ${date}, ${year} ${hour}:${minute}:${seconds}`); // Your timezone!
+        var myDate = new Date(`${month} ${date}, ${year} ${hour}:${minute}:00`); // Your timezone!
         var myEpoch = myDate.getTime()/1000.0;
 
         interaction.followUp(`${text} <t:${myEpoch}:R>`)
