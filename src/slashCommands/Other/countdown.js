@@ -17,12 +17,6 @@ module.exports = {
           required: true,
         },
         {
-          name: "text",
-          description: "need a text?",
-          type: "STRING",
-          required: false,
-        },
-        {
           name: "date",
           description: "pick a number from 1-31",
           type: "NUMBER",
@@ -46,6 +40,12 @@ module.exports = {
           type: "NUMBER",
           required: true,
         },
+        {
+          name: "text",
+          description: "need a text?",
+          type: "STRING",
+          required: false,
+        }
 
     ],
   
