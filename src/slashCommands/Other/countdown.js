@@ -20,7 +20,7 @@ module.exports = {
           name: "text",
           description: "need a text?",
           type: "STRING",
-          required: true,
+          required: false,
         },
         {
           name: "date",
