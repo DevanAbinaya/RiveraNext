@@ -35,7 +35,7 @@
     "discord-collector": "^1.11.18",
     "discord.js": "^13.8.0",
     "dotenv": "^10.0.0",
-    "erela.js": "^2.3.3",
+    "erela.js": "github:brblacky/erela.js#custom",
     "erela.js-deezer": "^1.0.7",
     "erela.js-facebook": "^1.0.4",
     "erela.js-spotify": "^1.2.0",
