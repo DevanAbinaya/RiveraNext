@@ -41,6 +41,7 @@ module.exports = {
               {name: "Fart", value: "fart"},
               {name: "He he he ha", value: "heheheha"},
               {name: "HEEEEEEE", value: "heeee"},
+              {name: "Baby laughing sound effect - No Copyright", value: "laugh"},
               {name: "MitsUBisHi MatErIAls", value: "materials"},
               {name: "Ok Bye", value: "okbye"},
               {name: "Roblox Death", value: "roblox-death"},
@@ -167,6 +168,9 @@ module.exports = {
                     return interaction.reply({embeds: [new MessageEmbed().setColor(system_embed_colour).setDescription("Playing a sound..")], ephemeral: true});
                   case "heeee" :
                     await sound.play(VoiceChannel, "heeee")
+                    return interaction.reply({embeds: [new MessageEmbed().setColor(system_embed_colour).setDescription("Playing a sound..")], ephemeral: true});
+                  case "laugh" :
+                    await sound.play(VoiceChannel, "laugh")
                     return interaction.reply({embeds: [new MessageEmbed().setColor(system_embed_colour).setDescription("Playing a sound..")], ephemeral: true});
                   case "materials" :
                     await sound.play(VoiceChannel, "materials")
